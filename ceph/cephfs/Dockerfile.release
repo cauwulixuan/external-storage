@@ -14,9 +14,9 @@
 
 FROM golang AS build
 
-RUN ls -l .
-COPY /go/src/github.com/kubernetes-incubator/external-storage .
-RUN ls -l /go/src/github.com/kubernetes-incubator/external-storage
+COPY . /go/src/github.com/kubernetes-incubator/external-storage
+RUN pwd && ls -l . && \
+    tree /go/src/
 WORKDIR /go/src/github.com/kubernetes-incubator/external-storage/ceph/cephfs
 RUN ls -l /go/src/github.com/kubernetes-incubator/external-storage
 RUN go build -a -ldflags '-extldflags "-static"' -o /go/bin/cephfs-provisioner cephfs-provisioner.go
