@@ -29,6 +29,6 @@ RUN rpm --import 'https://download.ceph.com/keys/release.asc' && \
   yum clean all
 
 COPY --from=build /go/bin/cephfs-provisioner /usr/local/bin/cephfs-provisioner
-COPY ceph/cephfs/cephfs_provisioner/cephfs_provisioner.py /usr/local/bin/cephfs_provisioner
+COPY ./ceph/cephfs/cephfs_provisioner/cephfs_provisioner.py /usr/local/bin/cephfs_provisioner
 RUN chmod -v o+x /usr/local/bin/cephfs_provisioner
 
