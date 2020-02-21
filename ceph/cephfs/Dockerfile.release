@@ -18,7 +18,7 @@ COPY . /go/src/github.com/kubernetes-incubator/external-storage
 WORKDIR /go/src/github.com/kubernetes-incubator/external-storage/ceph/cephfs
 RUN pwd && ls -l . && \
     ls -l /go/src/github.com/kubernetes-incubator/external-storage && \
-    echo &GOPATH
+    echo $GOPATH
 RUN go build -a -ldflags '-extldflags "-static"' -o /go/bin/cephfs-provisioner cephfs-provisioner.go
 
 
